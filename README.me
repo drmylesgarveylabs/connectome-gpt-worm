@@ -1,0 +1,122 @@
+<h1 align="center">🪱 ConnectomeGPT-Worm</h1>
+<p align="center"><i>A language model with a biological detour.</i></p>
+<p align="center">Developed by <b>Dr. Myles Douglas Garvey (Self Funded AI Researcher) - drmylesgarvey@gmail.com</b></p>
+
+<p align="center">
+  <img src="model_representation.png" alt="ConnectomeGPT-Worm Architecture Diagram" width="800">
+</p>
+
+---
+
+## 📌 Table of Contents
+* [🧠 Overview](#-overview)
+* [🏗️ Architecture](#️-architecture)
+  * [Technical Specifications](#technical-specifications)
+* [🧪 Experimental Matrix](#-experimental-matrix)
+  * [🌐 Group A: Structural Integrity](#-group-a-structural-integrity)
+  * [🔍 Group B: Ablations & Alterations](#-group-b-ablations--alterations)
+* [📊 Evaluation & Benchmarks](#-evaluation--benchmarks)
+* [💾 Dataset & Training Specs](#-dataset--training-specs)
+  * [Hyperparameters](#hyperparameters)
+* [⚠️ Limitations & Disclaimers](#️-limitations--disclaimers)
+* [📜 Citation](#-citation)
+
+---
+
+## 🧠 Overview
+
+ConnectomeGPT-Worm is an experimental, GPT-style text model that embeds the actual biological neural circuitry of the roundworm (*C. elegans*) directly into its core architecture. 
+
+* **The Core Question:** Can 50 million years of biological evolutionary engineering serve as a useful inductive bias for next-token prediction?
+* **The Mechanism:** The model acts as a hybrid system, routing linguistic information through a fixed biological network before generating text.
+* **The Source:** Neural synaptic weights were sourced directly from the **OpenWorm Project** GitHub repository.
+
+---
+
+## 🏗️ Architecture
+
+A standard language model operates via a linear pipeline: `Embeddings ➔ Math ➔ Next-Token Prediction`. This architecture inserts a biological detour into the hidden states.
+
+Language In ➔ Transformer Encoder ➔ [Biological Connectome] ➔ Transformer Decoder ➔ Language Out
+                                    │                      │
+                       (Sensory Neurons Project) ➔ (Motor Neurons Read)
+
+### Technical Specifications
+* **Hidden Dimensions:** 256-dimensional hidden states
+* **Attention Heads:** 4 heads
+* **Context Window:** 1024 tokens
+* **Biological Middle Layer:** 302 neurons, ~5,000 connections
+* **Signal Conditioning:** Connectome matrix normalized so its largest eigenvalue equals 1.0 (prevents exploding/vanishing gradients).
+
+---
+
+## 🧪 Experimental Matrix
+
+Seven distinct configurations were tested across **5 independent random seeds** over **10,000 training steps** to ensure statistical rigor.
+
+### 🌐 Group A: Structural Integrity
+* **Experiment 1 — The Real Thing (Fixed):** Connectome is loaded and frozen. The transformer must learn to compute around fixed biological constraints.
+* **Experiment 2 — Connectome Head Start (Trainable):** Initialized with biological weights but allowed to adapt during backpropagation.
+* **Experiment 3 — The Impostor (Random Weights):** Biological sparsity and network topology are kept intact, but synaptic weights are randomized.
+
+### 🔍 Group B: Ablations & Alterations
+* **Experiment 4 — Zooming Out (Subsets):** Probes network scaling by extracting the top 50, 100, and 200 most interconnected neurons.
+* **Experiment 5 — Wrong Doors (Arbitrary I/O):** Connectome is real and fixed, but inputs/outputs bypass sensory/motor pathways for random entry/exit points:
+  * **5a:** Arbitrary inputs only
+  * **5b:** Arbitrary outputs only
+  * **5c:** Both inputs and outputs randomized
+* **Experiment 6 — Thawing the Worm (Phase 2):** Fully trains Experiment 1, freezes all transformer weights, then unfreezes *only* the connectome for 10,000 surgical tuning steps.
+* **Experiment 7 — No Worm at All (Dense Baseline):** Replaces biology entirely with a standard, fully-connected feedforward layer of equal parameter width.
+
+---
+
+## 📊 Evaluation & Benchmarks
+
+Models were evaluated every 50 steps across two core metrics:
+
+1. **Perplexity (PPL):** Evaluated on **WikiText-103**. Lower is better. Measures linguistic confusion.
+2. **MMLU Accuracy:** Evaluated across **8 academic subjects** (High School & College Biology, Chemistry, Physics, Computer Science, and Abstract Algebra). Baseline random guessing is 25%.
+
+---
+
+## 💾 Dataset & Training Specs
+
+### Data Sourcing
+* **Linguistic Data:** WikiText-103 (100M+ tokens from featured Wikipedia articles) pre-tokenized via the GPT-2 tokenizer (50,257 vocab size).
+* **Biological Data:** *C. elegans* hermaphrodite full edge list from `OpenWorm/CElegansNeuroML`. Contains chemical synapses with counts as edge weights.
+
+### Hyperparameters
+
+| Parameter | Value |
+| :--- | :--- |
+| **Hardware** | 1x NVIDIA A100 80GB GPU |
+| **Batch Size** | 32 sequences × 1024 tokens |
+| **Optimizer** | AdamW (beta1=0.9, beta2=0.95, weight decay = 0.01) |
+| **Learning Rate** | 3e-4 |
+| **LR Schedule** | 500-step linear warmup ➔ Cosine decay to 10% |
+| **Precision** | Native bfloat16 |
+| **Seeds** | 42, 123, 456, 789, 1337 |
+
+---
+
+## ⚠️ Limitations & Disclaimers
+
+* **Scale Threshold:** At 256 hidden dimensions, this model operates below the threshold where robust downstream reasoning emerge. Small variations across seeds may impact MMLU.
+* **Domain Mismatch:** *C. elegans* neurobiology evolved for locomotion, chemotaxis, and survival behavior—not language processing.
+* **I/O Mapping Sensitivity:** Projecting a continuous mathematical vector space onto a discrete set of biological sensory nodes introduces significant design bias.
+
+---
+
+## 📜 Citation
+
+If you utilize this architecture, codebase, or data, please credit the original biological mapping efforts:
+
+@article{gleeson2018c302,
+  title={c302: a multiscale framework for modelling the nervous system of Caenorhabditis elegans},
+  author={Gleeson, Padraig and others},
+  journal={Philosophical Transactions of the Royal Society B: Biological Sciences},
+  year={2018}
+}
+
+---
+*Model card written to accompany worm_experiments_final_...ipynb.*
