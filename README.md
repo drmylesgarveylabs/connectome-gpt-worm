@@ -1,4 +1,4 @@
-# 🪱 ConnectomeGPT-Worm
+[# 🪱 ConnectomeGPT-Worm
 
 <p align="center">
   <i>A language model with a biological detour.</i>
@@ -307,3 +307,4 @@ Results should be interpreted as **exploratory experimental findings**, not as e
 ---
 
 *Model card accompanying `worm_experiments_final_...ipynb`.*
+](https://github.com/drmylesgarveylabs/connectome-gpt-worm)
