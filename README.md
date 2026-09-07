@@ -9,7 +9,7 @@ Developed by **Dr. Myles Douglas Garvey** — Self-Funded AI Researcher
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22545299-blue)](https://doi.org/10.5281/zenodo.22545299)
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/drmylesgarveylabs/connectome-gpt-worm)
-[![Model](https://img.shields.io/badge/Model-GPT--Worm-blue)](#)
+[![Model](https://img.shields.io/badge/Model-GPT--Worm-blue)](https://huggingface.co/drmylesgarveylabs/connectome-gpt-worm)
 [![Preprint](https://img.shields.io/badge/Preprint-Zenodo-blue)](https://doi.org/10.5281/zenodo.22545299)
 
 <img src="./model_representation.png" alt="ConnectomeGPT-Worm Architecture Diagram" width="800">
